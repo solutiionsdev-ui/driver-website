@@ -1,0 +1,355 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   TIER 1 — PRIMITIVES  (`--raw-*`)
+   Raw literal values. The only tier allowed to contain a hex/px/ms literal.
+   Never referenced in markup, never bound into @theme. Rename freely.
+   Grammar: --raw-<category>-<name>[-<shade>]
+   See obsidian/frontend/design-system.md → "Token naming convention".
+   --------------------------------------------------------------------------- */
+:root {
+  /* GRIDO1 palette — sampled from Figma frame 823:247 ("Hero 4").
+     The design is a light art-directed sheet: one near-white ground, pure
+     black copy, one cyan accent, one near-black panel. */
+  --raw-color-ice-50: #f7fafb; /* frame fill */
+  --raw-color-ice-100: #ebeef1; /* backdrop contour lines (Union fill) */
+  --raw-color-ice-200: #dfe5e9; /* derived — hairlines & dividers */
+  --raw-color-steel-400: #b6c1c8; /* derived — muted copy on dark */
+  --raw-color-ink-950: #090a0b; /* all body copy */
+  --raw-color-ink-900: #0e0f14; /* "view profile" panel fill */
+  --raw-color-ink-800: #1b1d24; /* derived — raised dark surface */
+  --raw-color-ink-700: #2a2d36; /* derived — borders on dark */
+  --raw-color-ink-alpha-35: rgb(9 10 11 / 0.35); /* driver_012, 01:26 */
+  --raw-color-slate-500: #7a7a7a; /* season map: the halftone */
+  --raw-color-slate-600: #4d4d4d; /* season map: grid lines, inner ring */
+  --raw-color-slate-900: #1e1e1e; /* season map: the two outer rings */
+  --raw-color-cyan-400: #02d2e3; /* accent */
+  --raw-color-cyan-alpha-25: rgb(2 210 227 / 0.25); /* CTA inner border */
+  --raw-color-stone-600: #535450; /* timeline: plate outline */
+  --raw-color-white-alpha-10: rgb(255 255 255 / 0.1); /* timeline: plate fill */
+  --raw-color-white-alpha-20: rgb(255 255 255 / 0.2); /* timeline: the rail */
+  --raw-color-ink-alpha-08: rgb(9 10 11 / 0.08); /* paddock: the contour lines */
+  --raw-color-white-alpha-40: rgb(255 255 255 / 0.4); /* footer: the copyright */
+  --raw-color-white: #ffffff;
+  --raw-color-orange-500: #ff6b00; /* error/warning only — outside the design */
+
+  /* Type scale — Figma px at the 1440 design base, where 1rem = 16px. */
+  --raw-font-size-96: 6rem; /* "kimi antonelli" */
+  --raw-font-size-70: 4.375rem; /* derived — the name on phones */
+  --raw-font-size-52: 3.25rem; /* derived — the headline below 1024 */
+  --raw-font-size-38: 2.375rem; /* stat figures */
+  --raw-font-size-20: 1.25rem; /* "view profile" */
+  --raw-font-size-18: 1.125rem; /* driver meta rows */
+  --raw-font-size-16: 1rem; /* nav, "[ Garage → ]" */
+  --raw-font-size-14: 0.875rem; /* panel body, "watch trailer", socials */
+  --raw-font-size-12: 0.75rem; /* panel eyebrows, stat labels */
+  --raw-font-size-55: 3.4375rem; /* "the season so far" */
+  --raw-font-size-36: 2.25rem; /* timeline years */
+
+  /* Leading & tracking — read off the same frame. */
+  --raw-leading-95: 0.95; /* headline */
+  --raw-leading-90: 0.9; /* every other uppercase run */
+  --raw-leading-72: 0.72; /* approximates Figma's cap-height text-box trim */
+  --raw-leading-110: 1.1; /* floor for clipped TextEngine reveals */
+  --raw-tracking-stat: -0.08em; /* -3.04px on 38px */
+  --raw-tracking-label: -0.04em; /* -0.48px on 12px */
+  --raw-tracking-eyebrow: -0.02em; /* -0.24px on 12px */
+
+  /* Radii — the hero is hard-edged; these serve the dev control panel. */
+  --raw-radius-16: 1rem;
+  --raw-radius-48: 3rem;
+  --raw-radius-100: 6.25rem;
+
+  --raw-duration-fast: 150ms;
+  --raw-duration-normal: 250ms;
+  --raw-duration-slow: 700ms; /* timeline: the plate's hover inset */
+
+  /* How far a block's furniture dissolves into the surface at its own edge.
+     A share for the season map, whose backdrop is cover-fitted and so scales
+     with the section; a length for the timeline rail, which is 3461 tall and
+     would lose a third of itself to a percentage. */
+  --raw-edge-fade-share: 10%;
+  --raw-edge-fade-length: 6rem;
+}
+
+/* ---------------------------------------------------------------------------
+   TIER 2 — SEMANTIC  (role names, no namespace prefix)
+   Purpose, not appearance. Always `var(--raw-*)` — never a literal.
+   This is the themeable layer. The brand theme is fixed (no dark-mode
+   variant) — the site is art-directed per section, light and dark surfaces
+   both exist on the page at once.
+   Grammar: --<role>[-<variant>][-<state>]
+   --------------------------------------------------------------------------- */
+:root {
+  --background: var(--raw-color-ice-50);
+  --foreground: var(--raw-color-ink-950);
+  --foreground-muted: var(--raw-color-ink-alpha-35);
+
+  --surface-dark: var(--raw-color-ink-900);
+  --surface-dark-raised: var(--raw-color-ink-800);
+  --surface-black: var(--raw-color-ink-950);
+  --surface-muted: var(--raw-color-ice-100);
+  --surface-soft: var(--raw-color-ice-200);
+
+  --foreground-on-dark: var(--raw-color-white);
+  --foreground-on-dark-muted: var(--raw-color-steel-400);
+
+  --border-muted: var(--raw-color-ice-200);
+  --border-on-dark: var(--raw-color-ink-700);
+
+  --map-dot: var(--raw-color-slate-500);
+  --map-grid: var(--raw-color-slate-600);
+  --map-grid-ghost: var(--raw-color-slate-900);
+  --map-mark: var(--raw-color-ice-50);
+
+  --timeline-outline: var(--raw-color-stone-600);
+  --timeline-fill: var(--raw-color-white-alpha-10);
+  --timeline-rail: var(--raw-color-white-alpha-20);
+  --paddock-contour: var(--raw-color-ink-alpha-08);
+  /* The footer draws the same contours on black, so they lift rather than
+     darken. */
+  --footer-contour: var(--raw-color-white-alpha-10);
+  --foreground-on-dark-faint: var(--raw-color-white-alpha-40);
+
+  --accent: var(--raw-color-cyan-400);
+  --accent-muted: var(--raw-color-cyan-alpha-25);
+  --highlight: var(--raw-color-orange-500);
+
+  --type-impact: var(--raw-font-size-96);
+  --type-display-lg: var(--raw-font-size-70);
+  --type-display: var(--raw-font-size-52);
+  --type-heading: var(--raw-font-size-38);
+  --type-title: var(--raw-font-size-20);
+  --type-lead: var(--raw-font-size-18);
+  --type-label: var(--raw-font-size-16);
+  --type-body: var(--raw-font-size-14);
+  --type-eyebrow: var(--raw-font-size-12);
+  --type-display-sm: var(--raw-font-size-55);
+  --type-year: var(--raw-font-size-36);
+
+  --type-leading-headline: var(--raw-leading-95);
+  --type-leading-flat: var(--raw-leading-90);
+  --type-leading-cap: var(--raw-leading-72);
+  --type-leading-display: var(--raw-leading-110);
+
+  --type-tracking-stat: var(--raw-tracking-stat);
+  --type-tracking-label: var(--raw-tracking-label);
+  --type-tracking-eyebrow: var(--raw-tracking-eyebrow);
+
+  --corner-tile: var(--raw-radius-16);
+  --corner-panel: var(--raw-radius-48);
+  --corner-pill: var(--raw-radius-100);
+
+  --duration-fast: var(--raw-duration-fast);
+  --duration-normal: var(--raw-duration-normal);
+  /* The reference holds the plate's inset for 700ms; anything quicker reads as
+     a flick rather than as the frame breathing. */
+  --duration-plate: var(--raw-duration-slow);
+
+  --edge-fade-share: var(--raw-edge-fade-share);
+  --edge-fade-length: var(--raw-edge-fade-length);
+}
+
+/* ---------------------------------------------------------------------------
+   THEME BINDINGS — map semantic tokens into Tailwind namespaces.
+   Every entry is exactly `--<tw-namespace>-<role>: var(--<role>)`.
+   `inline` is required: it inlines the var() into each utility, so any
+   Tier 2 override cascades. Binding a literal here instead would freeze the
+   value and break theming.
+
+   Only these namespaces generate utilities (verified against tailwindcss
+   v4.3.3): --color-* --spacing-* --radius-* --leading-* --tracking-* --text-*
+   --font-* --ease-* --breakpoint-* --container-* --shadow-* --blur-* --animate-*
+   NOTE: there is NO --duration-* namespace in v4 — `duration-fast` compiles to
+   nothing. Durations stay Tier 2 only and are used as duration-[var(--duration-fast)].
+   --------------------------------------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-raised: var(--surface-dark-raised);
+  --color-surface-black: var(--surface-black);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-soft: var(--surface-soft);
+  --color-foreground-on-dark: var(--foreground-on-dark);
+  --color-foreground-on-dark-muted: var(--foreground-on-dark-muted);
+  --color-foreground-on-dark-faint: var(--foreground-on-dark-faint);
+  --color-timeline-outline: var(--timeline-outline);
+  --color-timeline-fill: var(--timeline-fill);
+  --color-timeline-rail: var(--timeline-rail);
+  --color-border-muted: var(--border-muted);
+  --color-border-on-dark: var(--border-on-dark);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-highlight: var(--highlight);
+
+  --text-impact: var(--type-impact);
+  --text-display-lg: var(--type-display-lg);
+  --text-display: var(--type-display);
+  --text-heading: var(--type-heading);
+  --text-title: var(--type-title);
+  --text-lead: var(--type-lead);
+  --text-label: var(--type-label);
+  --text-body: var(--type-body);
+  --text-eyebrow: var(--type-eyebrow);
+  --text-display-sm: var(--type-display-sm);
+  --text-year: var(--type-year);
+
+  --tracking-stat: var(--type-tracking-stat);
+  --tracking-label: var(--type-tracking-label);
+  --tracking-eyebrow: var(--type-tracking-eyebrow);
+
+  --leading-headline: var(--type-leading-headline);
+  --leading-flat: var(--type-leading-flat);
+  --leading-cap: var(--type-leading-cap);
+  /* Leading floor for clipped TextEngine reveals — see
+     obsidian/frontend/text-engine.md → "Alignment & line-height". */
+  --leading-display: var(--type-leading-display);
+
+  --radius-tile: var(--corner-tile);
+  --radius-panel: var(--corner-panel);
+  --radius-pill: var(--corner-pill);
+
+  --font-sans: var(--font-space-grotesk);
+  --font-display: var(--font-oswald);
+
+  --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
+  /* The reference's own curve, read off its computed style. */
+  --ease-plate: cubic-bezier(0.33, 0, 0, 1);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100lvh;
+}
+
+@layer base {
+  /* Adaptive scaling grid — scales the root font-size with the viewport so a
+     rem-based layout stays proportional. Each breakpoint divides FONT_BASE
+     (16px) by the design base width its range was laid out at:
+       font-size: 16 * 100 / baseWidth  (vw)
+     Above 1920px the AdaptiveGrid component takes over (scale-up).
+     Keep in sync with src/components/common/grid/grid.config.ts. */
+  html {
+    font-size: 16px;
+  }
+
+  @media (max-width: 1920px) {
+    html {
+      font-size: 0.833333vw; /* 16 * 100 / 1920 */
+    }
+  }
+
+  @media (max-width: 1440px) {
+    html {
+      font-size: 1.111111vw; /* 16 * 100 / 1440 */
+    }
+  }
+
+  /* Below `xl` the page is the stacked adaptation, not a scaled copy of a
+     wider frame — so the type scale holds at the design's base and the
+     breakpoints do the adapting. Scaling proportionally here drove the root
+     to 10.0px at 641px, and because the phone range was based at 360 while
+     it reached up to 640, it snapped to 28.4px one pixel lower. The range
+     ends at 1279 so it matches exactly where the overlay layout takes over;
+     from 1280 the frame scales proportionally to 1440 as before.
+     See [[decisions-log]] ADR-0024. */
+  @media (max-width: 1279px) {
+    html {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Landscape phones (~390px tall): the hero's stack has to tighten or the
+   subject never reaches the first screen. Height-keyed, so it never fires on
+   a desktop or tablet. */
+@custom-variant short {
+  @media (max-height: 500px) {
+    @slot;
+  }
+}
+
+@layer utilities {
+}
+
+/* The hero's nav collapses to a swipeable strip below `xl`; the scrollbar
+   would sit across the masthead, so it is hidden while scrolling stays. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+}
+
+/* Every block is drawn at 1440, but the 1441-1920 range bases the root on
+   **1920** — so between those widths a rem-measured block renders at
+   1440/1920 of the size it was drawn at. On a 1512 screen that is a 12.6px
+   root against the 16 it was drawn for, and the hero's masthead came out
+   three quarters of itself.
+
+   Four of the six blocks never had the problem: the timeline, the paddock and
+   the footer measure themselves in `cqw` off their own container, so a design
+   pixel stays a design pixel at any width. The hero and the season block are
+   the two written in rem, and this is what puts them back on the same base.
+
+   The multiplier is 1920/1440 exactly — the block's own base over the band's,
+   not a taste value — and that is not a coincidence with the `cqw` blocks: in
+   this band a rem is `width/1920`, so multiplying by 1920/1440 gives
+   `width/1440`, which is exactly what one `cqw` design pixel is. The two
+   schemes come out **pixel-identical across the whole band**, which is the
+   point — the season block has to read at the same size as the timeline
+   directly under it.
+
+   Type alone is not enough. Both blocks hold their type in boxes measured in
+   rem, so every such box is scaled by the same factor or its contents outgrow
+   it: at 4/3 with the boxes left alone, "spa-francorchamps" and "118" broke
+   onto second lines and the season's standings plate overflowed its own
+   outline. The season block passes its factor down as `--season-base`, which
+   its `geometry.ts` reads — see the `px()` there. */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  [data-hero] {
+    --hero-base: calc(1920 / 1440);
+    --type-impact: calc(var(--raw-font-size-96) * var(--hero-base));
+    --type-display-lg: calc(var(--raw-font-size-70) * var(--hero-base));
+    --type-display: calc(var(--raw-font-size-52) * var(--hero-base));
+    --type-heading: calc(var(--raw-font-size-38) * var(--hero-base));
+    --type-title: calc(var(--raw-font-size-20) * var(--hero-base));
+    --type-lead: calc(var(--raw-font-size-18) * var(--hero-base));
+    --type-label: calc(var(--raw-font-size-16) * var(--hero-base));
+    --type-body: calc(var(--raw-font-size-14) * var(--hero-base));
+    --type-eyebrow: calc(var(--raw-font-size-12) * var(--hero-base));
+  }
+
+  /* The three boxes in the hero sized in rem while their contents are type:
+     left alone, the bigger type broke "spa-francorchamps" and "118" onto
+     second lines and the stats plate overflowed its column. */
+  [data-hero] [data-hero-panels] {
+    width: calc(13.625rem * var(--hero-base, 1));
+  }
+
+  [data-hero] [data-hero-stats] {
+    width: calc(10.75rem * var(--hero-base, 1));
+  }
+
+  [data-hero] [data-hero-map] {
+    height: calc(3.125rem * var(--hero-base, 1));
+    width: calc(4.875rem * var(--hero-base, 1));
+  }
+
+  /* The season block, on the same base as the timeline below it. Its boxes
+     are not listed here: they read `--season-base` through `px()` in the
+     block's own `geometry.ts`, the way the `cqw` blocks read their `px()`. */
+  [data-season] {
+    --season-base: calc(1920 / 1440);
+    --type-display-sm: calc(var(--raw-font-size-55) * var(--season-base));
+    --type-lead: calc(var(--raw-font-size-18) * var(--season-base));
+    --type-body: calc(var(--raw-font-size-14) * var(--season-base));
+    --type-eyebrow: calc(var(--raw-font-size-12) * var(--season-base));
+  }
+}

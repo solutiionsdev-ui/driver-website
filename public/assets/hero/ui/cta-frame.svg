@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="220" height="50" viewBox="0 0 220 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 4">
+<g id="Subtract">
+<mask id="path-1-inside-1_0_23" fill="white">
+<path d="M220 42L212.932 50H0V0H220V42Z"/>
+</mask>
+<path d="M220 42L212.932 50H0V0H220V42Z" fill="#0E0F14"/>
+<path d="M220 42L220.749 42.6621L221 42.3785V42H220ZM212.932 50V51H213.383L213.681 50.6621L212.932 50ZM0 50H-1V51H0V50ZM0 0V-1H-1V0H0ZM220 0H221V-1H220V0ZM220 42L219.251 41.3379L212.182 49.3379L212.932 50L213.681 50.6621L220.749 42.6621L220 42ZM212.932 50V49H0V50V51H212.932V50ZM0 50H1V0H0H-1V50H0ZM0 0V1H220V0V-1H0V0ZM220 0H219V42H220H221V0H220Z" fill="#02D2E3" fill-opacity="0.25" mask="url(#path-1-inside-1_0_23)"/>
+</g>
+<path id="Vector 5" d="M205 49.5H213L219.5 42V36" stroke="#02D2E3"/>
+<path id="Vector 7" d="M212 0.5H219.5V7" stroke="#02D2E3"/>
+<path id="Vector 8" d="M8 0.5H0.5V7" stroke="#02D2E3"/>
+<path id="Vector 9" d="M7.5 49.5H0.5V42.5" stroke="#02D2E3"/>
+</g>
+</svg>
