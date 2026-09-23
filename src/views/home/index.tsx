@@ -1,6 +1,7 @@
 import { homeContent } from "@/data/mocks/home";
 import { isBot } from "@/utils/is-bot";
 
+import { AnchorScroll } from "@/views/home/anchor-scroll";
 import { SectionStack, StackLayer } from "@/views/home/section-stack";
 import { Hero } from "@/views/home/sections/hero";
 import { Season } from "@/views/home/sections/season";
@@ -29,15 +30,16 @@ export const HomeView = async () => {
         <StackLayer z={0}>
           <Hero content={homeContent.hero} showScene={!bot} />
         </StackLayer>
-        <StackLayer z={10}>
+        <StackLayer z={10} id="season">
           <Season content={homeContent.season} />
         </StackLayer>
-        <StackLayer z={20} pinned={false}>
+        <StackLayer z={20} pinned={false} id="career">
           <Timeline content={homeContent.timeline} />
         </StackLayer>
       </SectionStack>
-      <Paddock content={homeContent.paddock} />
+      <Paddock content={homeContent.paddock} id="paddock" />
       <Footer content={homeContent.footer} />
+      <AnchorScroll />
     </main>
   );
 };

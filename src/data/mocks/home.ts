@@ -166,10 +166,10 @@ export const homeContent: HomeContent = {
       href: "/",
     },
     nav: [
-      { label: "Driver", href: "/driver" },
-      { label: "SEASON", href: "/season" },
+      { label: "Driver", href: "/#career" },
+      { label: "SEASON", href: "/#season" },
       { label: "journal", href: "/journal" },
-      { label: "next race", href: "/next-race" },
+      { label: "next race", href: "/#paddock" },
       { label: "store", href: "/store" },
     ],
     garage: { label: "Garage", href: "/garage" },
@@ -224,7 +224,7 @@ export const homeContent: HomeContent = {
       duration: "01:26",
       href: "/trailer",
     },
-    profile: { label: "view profile", href: "/driver/kimi-antonelli" },
+    profile: { label: "view profile", href: "/#career" },
     socials: [
       { label: "inst", href: "https://instagram.com" },
       { label: "x", href: "https://x.com" },
@@ -247,10 +247,10 @@ export const homeContent: HomeContent = {
   footer: {
     headline: ["keep pushing", "forward"],
     nav: [
-      { label: "driver", href: "/driver" },
-      { label: "season", href: "/season" },
+      { label: "driver", href: "/#career" },
+      { label: "season", href: "/#season" },
       { label: "journal", href: "/journal" },
-      { label: "next race", href: "/next-race" },
+      { label: "next race", href: "/#paddock" },
       { label: "store", href: "/store" },
     ],
     cta: { label: "legal documents", href: "/legal" },

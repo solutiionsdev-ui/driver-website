@@ -122,6 +122,8 @@ export interface StackLayerProps {
   z: number;
   /** The last layer scrolls normally; it covers but is never covered. */
   pinned?: boolean;
+  /** In-page anchor (`/#id`) — resolved by `<AnchorScroll/>`, not natively. */
+  id?: string;
 }
 
 /**
@@ -130,8 +132,21 @@ export interface StackLayerProps {
  * transformed ancestor takes `position: sticky` out of the viewport's frame of
  * reference, so the pin would stop working the moment the recede began.
  */
-export const StackLayer = ({ children, z, pinned = true }: StackLayerProps) => (
-  <div className={pinned ? "sticky top-0" : "relative"} style={{ zIndex: z }}>
+export const StackLayer = ({
+  children,
+  z,
+  pinned = true,
+  id,
+}: StackLayerProps) => (
+  <div
+    id={id}
+    // Marks the layer for `<AnchorScroll/>`: a pinned layer's rect is where it
+    // is stuck, not where it sits in the flow, so anchors into the stack are
+    // resolved from the layers' heights instead.
+    data-stack-layer
+    className={pinned ? "sticky top-0" : "relative"}
+    style={{ zIndex: z }}
+  >
     <div className="origin-center">{children}</div>
     {pinned ? (
       <div

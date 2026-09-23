@@ -1,6 +1,6 @@
 ---
 tags: [frontend, components, stable]
-updated: 2026-09-08
+updated: 2026-09-23
 ---
 
 # Page sections
@@ -712,6 +712,32 @@ here, ink-on-light there.
 given, and the text engine sets its own wrap inline; constrained, the row broke
 in two and landed on "store". Third block running that the engine's inline wrap
 has decided a layout — see the calendar's race names and the timeline's copy.
+
+## In-page anchors — `anchor-scroll.tsx`
+
+The nav, the menu sheet, the footer and the hero's "view profile" point into
+the page rather than at routes of their own (ADR-0031):
+
+| Link | Target | Carried by |
+|------|--------|------------|
+| Driver, view profile | `/#career` | the timeline's `StackLayer id` |
+| Season | `/#season` | the season's `StackLayer id` |
+| Next race | `/#paddock` | `Paddock`'s `id` prop |
+
+`<AnchorScroll/>` (client leaf, rendered once in `HomeView`) resolves them. A
+native anchor jump cannot: the first layers of `SectionStack` are `position:
+sticky`, so their rect is where they are *stuck*, not where they sit in the
+flow, and scrolled past the hero `#season` reads 0. Every `StackLayer` carries
+`data-stack-layer`; a target inside one is placed at the stack's top plus the
+heights of the layers before it. It then scrolls through Lenis (`force: true`,
+because the menu sheet stops Lenis and the closing click is the same click).
+
+It listens for clicks in the **capture** phase on `document`, ahead of React's
+root listener, so `preventDefault()` makes `next/link` skip its own hash
+navigation (it bails on `defaultPrevented`) while the link's own `onClick` —
+closing the sheet — still runs. Modified clicks fall through to the browser.
+Arriving from another route with a hash (e.g. the coming-soon pages' header)
+is handled on mount, after a short delay for the loader and first layout.
 
 ## Related
 

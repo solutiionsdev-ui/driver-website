@@ -42,6 +42,8 @@ import {
 export interface PaddockProps {
   content: HomeContent["paddock"];
   className?: string;
+  /** In-page anchor — the nav's "next race" lands here. */
+  id?: string;
 }
 
 /**
@@ -58,8 +60,9 @@ export interface PaddockProps {
  * matters — the band is under the portrait and the gradient is over it, which
  * is how the figure dissolves into the strip instead of being cut by it.
  */
-export const Paddock = ({ content, className }: PaddockProps) => (
+export const Paddock = ({ content, className, id }: PaddockProps) => (
   <section
+    id={id}
     // `max-xl` only, so 1280 and 1440 are untouched: below them the copy has
     // stopped shrinking with the block — the root font size is pinned at 16
     // under 1280 — while the figure kept scaling off the height, so it had

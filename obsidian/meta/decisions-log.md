@@ -1,12 +1,44 @@
 ---
 tags: [meta, decision]
-updated: 2026-09-08
+updated: 2026-09-23
 ---
 
 # Decisions Log (ADRs)
 
 Architecture Decision Records. Each entry captures a choice, its context, and its
 consequences. Use [[templates/adr-note]] for new entries. Newest first.
+
+---
+
+## ADR-0031 — Nav links resolve to in-page anchors or coming-soon placeholders
+
+- **Status:** Accepted
+- **Date:** 2026-09-23
+
+**Context.** Every link in the masthead, menu sheet, footer and hero CTAs
+pointed at a route (`/driver`, `/season`, `/journal`, `/next-race`, `/store`,
+`/garage`, `/trailer`, `/driver/kimi-antonelli`, `/stories/hungarian-gp`,
+`/legal`) and only `/` existed, so all of them 404'd. Some have matching
+content on the home page; the rest have no content anywhere in the project.
+
+**Decision.**
+
+1. **Links with content on `/` become anchors.** Driver + view profile →
+   `/#career` (timeline), Season → `/#season`, Next race → `/#paddock`.
+2. **Anchors are resolved by `<AnchorScroll/>`, not natively.** The stack's
+   layers are sticky, so a rect-based jump lands on where a layer is stuck, not
+   where it sits. Targets inside the stack are placed from the layers' heights
+   (`data-stack-layer`), then scrolled through Lenis. A document-level capture
+   listener pre-empts `next/link` via `defaultPrevented`. See [[sections]].
+3. **Links without content get placeholder routes** (owner's choice over hiding
+   them, which would change the design): journal, the Hungarian GP story,
+   store, garage, trailer, legal — each a 3-line route delegating to one
+   `ComingSoonView`, copy in `src/data/mocks/coming-soon.ts`, `noindex`, out of
+   the sitemap.
+
+**Consequences.** No link on the site 404s. Filling a page in later means a new
+view for that route; the placeholder copy entry can then be deleted. `StackLayer`
+gained an `id` prop and `Paddock` an `id` prop.
 
 ---
 

@@ -1,9 +1,20 @@
 ---
 tags: [meta, changelog]
-updated: 2026-09-08
+updated: 2026-09-23
 ---
 
 # Changelog
+
+## 2026-09-23
+
+- **Menu links no longer 404.** Driver / view profile, Season and Next race
+  scroll to `#career`, `#season` and `#paddock` on the home page through the
+  new `<AnchorScroll/>` (stack-aware, Lenis-driven, pre-empts `next/link`).
+  Journal, the Hungarian GP story, Store, Garage, Watch trailer and Legal open
+  new `noindex` coming-soon pages (`ComingSoonView`, copy in
+  `data/mocks/coming-soon.ts`). `StackLayer` and `Paddock` take an `id`.
+  Verified in headless Chrome: desktop nav, footer from page bottom, phone menu
+  sheet, and arriving on `/#paddock` from another route. ADR-0031.
 
 ## 2026-09-08
 

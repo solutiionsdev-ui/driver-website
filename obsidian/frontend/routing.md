@@ -1,6 +1,6 @@
 ---
 tags: [frontend, stable]
-updated: 2026-08-04
+updated: 2026-09-23
 ---
 
 # Routing
@@ -35,7 +35,20 @@ here on route `/` (see [[ai-agent-guide]] / [[new-page]]).
 
 | Route | File | View |
 |-------|------|------|
-| `/` | `src/app/page.tsx` | `views/home.tsx` → `HomeView` |
+| `/` | `src/app/page.tsx` | `views/home` → `HomeView` |
+| `/journal` | `src/app/journal/page.tsx` | `views/coming-soon` → `ComingSoonView page="journal"` |
+| `/stories/hungarian-gp` | `src/app/stories/hungarian-gp/page.tsx` | `ComingSoonView page="story"` |
+| `/store` | `src/app/store/page.tsx` | `ComingSoonView page="store"` |
+| `/garage` | `src/app/garage/page.tsx` | `ComingSoonView page="garage"` |
+| `/trailer` | `src/app/trailer/page.tsx` | `ComingSoonView page="trailer"` |
+| `/legal` | `src/app/legal/page.tsx` | `ComingSoonView page="legal"` |
+
+The coming-soon routes are **placeholders** for links the design carries but
+the project has no content for (ADR-0031). Copy lives in
+`src/data/mocks/coming-soon.ts`; each page is `noindex` via
+`comingSoonMetadata()` and left out of the sitemap. To build one out, give it
+its own view and point the route at it. Driver / Season / Next race are not
+routes — they are in-page anchors on `/`, see [[sections]] → "In-page anchors".
 
 ## Special files
 
