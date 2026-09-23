@@ -5,7 +5,7 @@ updated: 2026-05-22
 
 # Backend
 
-`next16-claude-starter` is frontend-first, but it now has a server **API
+`athlete-personal-branding` is frontend-first, but it now has a server **API
 layer**: Next.js Route Handlers under `src/app/api/`. There is still no
 database or authentication.
 

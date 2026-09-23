@@ -7,6 +7,17 @@ updated: 2026-09-23
 
 ## 2026-09-23
 
+- **Renamed to Athlete Personal Branding; the site is now a generic athlete
+  template.** Package `athlete-personal-branding` (was `next16-claude-starter`),
+  site/manifest name, README/AGENTS/vault titles. Every mention of the original
+  driver is gone — hero reads `driver_00` / "athlete name", meta rows
+  "Nationality" / "season_2026" / "Team name" on new placeholder marks
+  (`flag-placeholder.svg`, `team-placeholder.svg`; `flag-italy.webp` and
+  `mercedes-logo.webp` deleted), timeline and paddock copy, alt text, JSON-LD
+  `Person`, OG script and code comments made generic. Photography, the hero 3D
+  textures, `helmet3.glb` and root `person.png` / `helmet.png` still show the
+  original driver and are the next thing to replace.
+
 - **Menu links no longer 404.** Driver / view profile, Season and Next race
   scroll to `#career`, `#season` and `#paddock` on the home page through the
   new `<AnchorScroll/>` (stack-aware, Lenis-driven, pre-empts `next/link`).
@@ -260,7 +271,7 @@ updated: 2026-09-23
 
 - **The hero wears the right helmet.** `helmet.glb` — the yellow McLaren /
   Monster livery [[decisions-log]] ADR-0022 flagged as "plainly wrong for a
-  Kimi Antonelli frame" — is replaced by a supplied Mercedes-AMG Petronas model
+  Mercedes-driver frame" — is replaced by a supplied Mercedes-AMG Petronas model
   that ships its own baked PBR set (base colour, normal, metallic-roughness in
   its own UVs, embedded as WebP). It arrived twice on the same day: `helmet2.glb`
   first, then `helmet3.glb`, which is **what ships** — same shape of export, a
@@ -1186,7 +1197,7 @@ updated: 2026-09-23
 - **Phone pass 2: tighter stack, merged footer row, bigger name and portrait.**
   Block gaps 40 → 32; the scene band `52svh` → `58svh` with the cap at `135vw`.
   The name gets `--text-display-lg`, a new 70px step between `--type-display`
-  (52) and `--type-impact` (96) — measured, not guessed: `ANTONELLI` in Oswald
+  (52) and `--type-impact` (96) — measured, not guessed: the surname in Oswald
   Bold is 225px at 52px, so 79px is the most that clears 390's gutters and 72px
   the most that clears 360's. 70 leaves headroom on both.
 
@@ -1270,7 +1281,7 @@ updated: 2026-09-23
   was a still vector. The canvas now spans the whole section.
 
   What kept that from being possible before is that the subject's pixel size is
-  a function of canvas height, so stretching the canvas stretched Kimi with it
+  a function of canvas height, so stretching the canvas stretched the athlete with it
   (1.38x at 1024x820). That is now decoupled: `fitSubjectToBox` in `scene.ts`
   takes the box the portrait *should* occupy and returns corrected
   `subjectScale` / `subjectY`. The subject scales about its own origin and the

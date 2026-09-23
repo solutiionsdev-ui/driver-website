@@ -66,12 +66,12 @@ const buildOpenGraph = async () => {
         .sub  { font-family: 'Space Grotesk','Inter',sans-serif;
                 font-weight: 400; font-size: 26px; fill: rgba(0,0,0,0.55); letter-spacing: 1px; }
       </style>
-      <text class="meta" x="64" y="292">DRIVER_012</text>
-      <text class="name" x="60" y="392">KIMI</text>
-      <text class="name" x="60" y="486">ANTONELLI</text>
+      <text class="meta" x="64" y="292">DRIVER_00</text>
+      <text class="name" x="60" y="392">ATHLETE</text>
+      <text class="name" x="60" y="486">NAME</text>
       <!-- Kept short: the portrait's silhouette starts around x=560, and a
            longer line disappears behind his shoulder. -->
-      <text class="sub"  x="64" y="546">MERCEDES-AMG F1 TEAM</text>
+      <text class="sub"  x="64" y="546">TEAM NAME</text>
     </svg>
   `);
 

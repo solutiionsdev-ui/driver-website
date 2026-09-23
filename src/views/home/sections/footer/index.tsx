@@ -106,7 +106,7 @@ export const Footer = ({ content, className }: FooterProps) => (
         />
         <Image
           src="/assets/footer/helmet.webp"
-          alt="Kimi Antonelli's helmet"
+          alt="The athlete's helmet"
           width={1536}
           height={1024}
           priority={false}

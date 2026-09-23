@@ -142,7 +142,7 @@ export const Paddock = ({ content, className, id }: PaddockProps) => (
     >
       <Image
         src="/assets/paddock/portrait.webp"
-        alt="Kimi Antonelli in the paddock"
+        alt="The athlete in the paddock"
         width={1350}
         height={1165}
         priority

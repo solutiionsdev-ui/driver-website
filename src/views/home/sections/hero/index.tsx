@@ -74,7 +74,7 @@ export const Hero = ({ content, showScene }: HeroProps) => {
   // The canvas covers the whole section so the backdrop's contours run
   // unbroken across it; this box is what keeps the portrait its own size while
   // that happens. It is a real element in the flow, so the layout — not a magic
-  // number — decides how big Kimi is. Hidden from `xl`, where the box and the
+  // number — decides how big the athlete is. Hidden from `xl`, where the box and the
   // canvas are the same thing and the scene needs no correction.
   //
   // Refs, not state: the scene reads them on its own resize pass. Measuring
@@ -201,7 +201,7 @@ export const Hero = ({ content, showScene }: HeroProps) => {
                 the block's own subject small. Neither rail is unique to this
                 screen — the next race is the calendar strip's live round and
                 the season figures are the paddock's own panel — so on a phone
-                the block is the name, the meta rows and Kimi. They return at
+                the block is the name, the meta rows and the athlete. They return at
                 `sm`. */}
             <div className="order-3 max-sm:hidden md:shrink-0 xl:order-none">
               <Spring
@@ -222,7 +222,7 @@ export const Hero = ({ content, showScene }: HeroProps) => {
           </div>
 
           {/* The portrait's box. It holds the space in the column and, through
-              `subjectBox`, tells the scene how big to draw Kimi — the canvas
+              `subjectBox`, tells the scene how big to draw the athlete — the canvas
               itself is elsewhere, spanning the whole section. Gone from `xl`,
               where the box and the canvas coincide. */}
           {/* **Out of the column entirely below `xl`.** Two goes at putting the
@@ -251,7 +251,7 @@ export const Hero = ({ content, showScene }: HeroProps) => {
               // takes the whole screen.
               // The **scene** is what this has to be sized for, not the
               // still: the two draw different subjects — the still is the
-              // photograph of Kimi's face, the scene puts his helmet on, and
+              // photograph of the athlete's face, the scene puts his helmet on, and
               // the helmet fills far more of the same box. Measured on the
               // phone, the still's crown sits 23% down the box and the
               // helmet's 10%, so a box that clears the meta rows for one

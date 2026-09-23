@@ -1,4 +1,4 @@
-# next16-claude-starter
+# Athlete Personal Branding
 
 A **Next.js 16 starter** for animation-heavy marketing & landing sites — built
 by [Textura](https://textura.agency) so that AI agents (Claude Code, Cursor)

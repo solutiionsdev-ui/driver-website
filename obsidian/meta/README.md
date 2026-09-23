@@ -10,7 +10,7 @@ This is the `meta` section: documentation *about* the documentation.
 ## Purpose
 
 The vault is the project's **second brain**. It exists so that any contributor —
-human or AI — can understand how `next16-claude-starter` is built without reverse-engineering
+human or AI — can understand how `athlete-personal-branding` is built without reverse-engineering
 the codebase. The code is the *what*; this vault is the *why* and *how*.
 
 ## Structure

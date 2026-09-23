@@ -224,7 +224,7 @@ export const STATS_COL_W_NARROW = "170px";
 /**
  * The phone's own set. The block stops being a composition with a figure in
  * it and becomes a **stack**: masthead, the meeting, the four figures two-up,
- * then Kimi, then the report and its button, then the strip. Nothing overlaps
+ * then the athlete, then the report and its button, then the strip. Nothing overlaps
  * anything, which at 390 is the only arrangement that reads — laid out as the
  * tablet's, the face covered every word on the block.
  *
@@ -234,7 +234,7 @@ export const STATS_COL_W_NARROW = "170px";
  */
 export const PHONE = {
   blockH: "1062px",
-  /** The report sits above the figure, not beside it: masthead, copy, Kimi. */
+  /** The report sits above the figure, not beside it: masthead, copy, the athlete. */
   introBottom: "139px",
   gutter: "24px",
   headTop: "24px",
@@ -250,7 +250,7 @@ export const PHONE = {
   statsDrop: "63px",
   /** Two rows instead of four: the frame closes 245 higher. */
   statsStretch: "calc(var(--panel-u) * -245)",
-  /** Kimi between the figures and the report. */
+  /** The athlete between the figures and the report. */
   figCap: "599px",
   /** **Standing in the strip**, as the frame has him — not floating above it. */
   figLift: "328px",

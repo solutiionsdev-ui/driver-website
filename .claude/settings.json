@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"PROJECT GUIDE — next16-claude-starter. All project documentation lives in the obsidian/ vault, which is the single source of truth. Before doing project work this session, read obsidian/README.md (the Map of Content) and obsidian/workflows/ai-agent-guide.md (the hard rules), then open the topic note relevant to the task before writing code.\"}}'",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"PROJECT GUIDE — Athlete Personal Branding. All project documentation lives in the obsidian/ vault, which is the single source of truth. Before doing project work this session, read obsidian/README.md (the Map of Content) and obsidian/workflows/ai-agent-guide.md (the hard rules), then open the topic note relevant to the task before writing code.\"}}'",
             "statusMessage": "Loading project guide"
           }
         ]

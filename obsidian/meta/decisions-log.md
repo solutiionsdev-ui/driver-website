@@ -17,7 +17,7 @@ consequences. Use [[templates/adr-note]] for new entries. Newest first.
 
 **Context.** Every link in the masthead, menu sheet, footer and hero CTAs
 pointed at a route (`/driver`, `/season`, `/journal`, `/next-race`, `/store`,
-`/garage`, `/trailer`, `/driver/kimi-antonelli`, `/stories/hungarian-gp`,
+`/garage`, `/trailer`, `/driver/<athlete>`, `/stories/hungarian-gp`,
 `/legal`) and only `/` existed, so all of them 404'd. Some have matching
 content on the home page; the rest have no content anywhere in the project.
 
@@ -226,7 +226,7 @@ hand again.
 - **Supersedes:** the open question left by [[decisions-log]] ADR-0022
 
 **Context.** ADR-0022 recorded that the hero wore `helmet.glb` in Lando's yellow
-McLaren/Monster livery — "plainly wrong for a Kimi Antonelli frame" — and that
+McLaren/Monster livery — "plainly wrong for a Mercedes-driver frame" — and that
 the front-on `helmet.png` could not be turned into a replacement texture. It
 listed what *would* work, first item: **a base colour painted into the model's
 own UV layout**, obtained from wherever the helmet model came from. The owner
@@ -422,7 +422,7 @@ Second, the desktop overlay composition is drawn at 1440 and only works
 there. The subject in the WebGL scene is sized by the *canvas height* (the
 camera's vertical FOV is fixed), while the text columns are sized by *width*.
 At 1024×768 the two diverge far enough that the portrait crossed into the
-headline — `ANTONELLI` sat behind the face, `driver_012` was hidden entirely,
+headline — the surname sat behind the face, `driver_012` was hidden entirely,
 and the footer row collapsed onto itself.
 
 **Decision.** Below `xl` (≤1279px) the root font-size holds at `FONT_BASE`
@@ -453,7 +453,7 @@ which is a scene-level change and deliberately out of scope here.
 
 **Context.** `helmet.png` (397×265, front-on product shot of the Mercedes
 helmet) was supplied to re-skin the 3D helmet, whose base colour is currently
-Lando's yellow Monster livery — plainly wrong for a Kimi Antonelli frame.
+Lando's yellow Monster livery — plainly wrong for a Mercedes-driver frame.
 
 **Decision.** The photo is **not** convertible, for three independent reasons,
 and the shell is recoloured to match it instead.

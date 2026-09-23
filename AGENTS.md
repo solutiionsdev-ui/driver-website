@@ -1,4 +1,4 @@
-# Agent Guide — next16-claude-starter
+# Agent Guide — Athlete Personal Branding
 
 ## This is NOT the Next.js you know
 

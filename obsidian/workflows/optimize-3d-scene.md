@@ -33,7 +33,7 @@ belongs to [[animation-system]] (spring/ticker cost) and [[seo-metadata]] (bot
 path, metadata, bundle).
 
 > [!note] The starter itself ships no 3D
-> `next16-claude-starter` has **no `three` dependency** — see [[tech-stack]]. This
+> `athlete-personal-branding` has **no `three` dependency** — see [[tech-stack]]. This
 > workflow exists for projects *built from* the starter that add one. Adding
 > `three` is a dependency change: update [[tech-stack]] and [[changelog]] in the
 > same turn.

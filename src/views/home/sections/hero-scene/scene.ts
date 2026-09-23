@@ -231,7 +231,7 @@ const MIN_FIT = 0.9;
  * Only there. At 1280 and up the masthead is set in the block's own scale and
  * clears the head on its own; below that the root font size is pinned at 16
  * and the name keeps growing against a viewport that is not, until
- * "antonelli" runs into the hair. A step of about 50 screen pixels opens that
+ * the surname runs into the hair. A step of about 50 screen pixels opens that
  * back up without reaching the panels on the right, which start at 1190 of
  * the frame.
  */
@@ -1566,7 +1566,7 @@ export class HeroScene {
    * The masthead is set in rem and the figure in world units against a fixed
    * camera, so the two do not shrink together: below 1440 the name keeps its
    * share of the width while the figure keeps its share of the *height*, and
-   * on a 1280x800 screen the helmet had closed on "antonelli" until the last
+   * on a 1280x800 screen the helmet had closed on the surname until the last
    * letters were reading through the glass. At 1440 and above both are
    * identities — 1 and 0 — so the frame the block is drawn at is untouched.
    */

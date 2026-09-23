@@ -1,6 +1,6 @@
-# Kimi — source template
+# Athlete Personal Branding — source template
 
-This is the complete source for the **Kimi** project, distributed as a GetLayers template.
+This is the complete source for the **Athlete Personal Branding** project, distributed as a GetLayers template.
 It's a Next.js app —
 the full project tree, minus installed dependencies and any local secrets.
 

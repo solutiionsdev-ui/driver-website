@@ -34,7 +34,7 @@
   --raw-color-orange-500: #ff6b00; /* error/warning only — outside the design */
 
   /* Type scale — Figma px at the 1440 design base, where 1rem = 16px. */
-  --raw-font-size-96: 6rem; /* "kimi antonelli" */
+  --raw-font-size-96: 6rem; /* the athlete's name */
   --raw-font-size-70: 4.375rem; /* derived — the name on phones */
   --raw-font-size-52: 3.25rem; /* derived — the headline below 1024 */
   --raw-font-size-38: 2.375rem; /* stat figures */

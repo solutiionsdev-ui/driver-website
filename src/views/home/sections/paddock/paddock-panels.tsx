@@ -99,7 +99,7 @@ const ROW_STAGGER = 90;
  * **Neither panel is drawn on a phone.** At 390 the block is a stack and the
  * two instruments took the whole upper half of it, which left the figure
  * hanging between them and the report. Both belong to a screen with room
- * beside the figure; the phone keeps the masthead, the report and Kimi.
+ * beside the figure; the phone keeps the masthead, the report and the athlete.
  */
 export const PaddockPanels = ({ meet, stats }: PaddockPanelsProps) => (
   <>

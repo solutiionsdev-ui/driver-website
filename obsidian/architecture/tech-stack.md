@@ -6,7 +6,7 @@ updated: 2026-09-07
 # Tech Stack
 
 Every dependency in `package.json`, what it does, and why it is here.
-Package name: `next16-claude-starter` · version `0.1.0` · private.
+Package name: `athlete-personal-branding` (renamed from `next16-claude-starter`, 2026-09-23) · version `0.1.0` · private.
 
 ## Core framework
 

@@ -11,7 +11,7 @@ the **app** (`src/`) and this **vault** (`obsidian/`).
 ## Repo root
 
 ```
-next16-claude-starter/
+athlete-personal-branding/
 ├── src/                     ← application code (see below)
 ├── public/                  ← static assets (see "public/" section below)
 ├── scripts/                 ← one-off asset builders, run by hand with node

@@ -7,7 +7,7 @@ updated: 2026-08-20
 
 ## What this is
 
-`next16-claude-starter` is a **frontend-only Next.js 16 starter** for building animation-heavy
+`athlete-personal-branding` is a **frontend-only Next.js 16 starter** for building animation-heavy
 marketing and landing pages. It ships with a complete spring-animation system, smooth
 scrolling, SEO scaffolding, and cookie consent — ready to drop a design into.
 

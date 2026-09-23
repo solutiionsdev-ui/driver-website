@@ -7,9 +7,9 @@
 import { publicEnv } from "@/env";
 
 export const siteConfig = {
-  name: "Kimi Antonelli — GRIDO1 Racing Systems",
+  name: "Athlete Personal Branding",
   description:
-    "Driver_012. Kimi Antonelli, rookie season 2026 with the Mercedes-AMG F1 Team. Next race: Belgian GP, Spa-Francorchamps.",
+    "Athlete Personal Branding — the season, the story and the next race, in one place. Next race: Belgian GP, Spa-Francorchamps.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
